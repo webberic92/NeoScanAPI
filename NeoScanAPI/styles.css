@@ -1,0 +1,26 @@
+@CHARSET "ISO-8859-1";
+
+
+body {
+	background-color: teal;
+	  text-align: center;
+	
+	}
+
+
+#Headers {
+  -webkit-align-self: center; /* Safari 7.0+ */
+  align-self: center;
+  text-align: center;
+  background-color:grey;
+  border: 3px solid green;
+}
+
+
+tableDemo,th,td {
+  border : 1px solid black;
+  border-collapse: collapse;
+}
+th,td {
+  padding: 5px;
+}
