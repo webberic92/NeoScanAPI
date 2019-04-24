@@ -4,7 +4,11 @@
 body {
 	background-color: teal;
 	  text-align: center;
-	
+	  padding-top: 10px;
+	  padding-left: 60px;
+	  padding-right: 60px;
+	  border-radius: 25px;
+	  
 	}
 
 
@@ -13,7 +17,15 @@ body {
   align-self: center;
   text-align: center;
   background-color:grey;
-  border: 3px solid green;
+  border: 5px solid limegreen;
+  border-radius: 15px;
+  
+}
+
+hr{
+	  border: 5px solid limegreen;
+	
+	
 }
 
 
