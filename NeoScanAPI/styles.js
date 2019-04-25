@@ -4,36 +4,51 @@
 
 
 function myAddress() {
+	
+	// Gets value for wallet address..
   var x = document.getElementById("myAddress").value;
   document.getElementById("displayAddress").innerHTML = x;
   document.getElementById("youChose").innerHTML = "You chose the wallet address of ...";
+  
+  //makes get request.
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("demo").innerHTML =
-      this.responseText;
-      console.log(this.responseText);
-      //invoking myFucntion below.
-//      myFunction(this);
+//      document.getElementById("demo").innerHTML =
+//      this.responseText;
+    	//here we have json string, need to convert to objet
+        let jsonObj=JSON.parse(this.responseText);
 
+     // traverse the JSON object
+      //WORKS
+       var balance =jsonObj['balance'];     
+       for (var i=0; i<balance.length; i++) {   
+      document.getElementById('demo3').innerHTML += "<br>" +  JSON.stringify(balance[i].asset_symbol);
+      }
       
-    }
-    
-      
-    
-    else if( this.readyState == 4 && this.status == 400) {
+       for (var i=0; i<balance.length; i++) {   
+      document.getElementById('demo4').innerHTML += "<br>" + JSON.stringify(balance[i].amount);  
+        
+       }}
+      else if( this.readyState == 4 && this.status == 400) {
           document.getElementById("demo").innerHTML = "That is an incorrect wallet address format...."
-    
-     }
-    
-    
+   
+  }  
+  
+  
   };
+      
+    
+   
+   
   xhttp.open("GET", "https://api.neoscan.io/api/main_net/v1/get_balance/" + x, true);
   xhttp.send();
   var y = document.getElementById("horizontalLine");
   y.style.display = "block";
    
 }
+
+
 
  
 function clearAddress() {
