@@ -23,24 +23,17 @@ function myAddress() {
       //WORKS
        var balance =jsonObj['balance'];     
        for (var i=0; i<balance.length; i++) {   
-      document.getElementById('demo3').innerHTML += "<br>" +  JSON.stringify(balance[i].asset_symbol);
+      document.getElementById('demo1').innerHTML += "<br>" +  JSON.stringify(balance[i].asset_symbol);
       }
       
        for (var i=0; i<balance.length; i++) {   
-      document.getElementById('demo4').innerHTML += "<br>" + JSON.stringify(balance[i].amount);  
+      document.getElementById('demo2').innerHTML += "<br>" + JSON.stringify(balance[i].amount);  
         
        }}
       else if( this.readyState == 4 && this.status == 400) {
           document.getElementById("demo").innerHTML = "That is an incorrect wallet address format...."
-   
   }  
-  
-  
   };
-      
-    
-   
-   
   xhttp.open("GET", "https://api.neoscan.io/api/main_net/v1/get_balance/" + x, true);
   xhttp.send();
   var y = document.getElementById("horizontalLine");
@@ -54,7 +47,9 @@ function myAddress() {
 function clearAddress() {
 	  document.getElementById("displayAddress").innerHTML = "Address Cleared, Please enter another...";
 	  document.getElementById("youChose").innerHTML = "";
-	  document.getElementById("demo").innerHTML = "";
+//	  document.getElementById("demo").innerHTML = "";
+	  document.getElementById("demo1").innerHTML = "";
+	  document.getElementById("demo2").innerHTML = "";
 
 	  var x = document.getElementById("myAddress").value;
 	  x=null;
